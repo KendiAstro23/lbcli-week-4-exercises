@@ -9,13 +9,8 @@
 
 TXID="8432ddfa618de25bd8838e3e16c044ef66e9385751a78924e5457acdedfb06c5"
 
-bitcoin-cli -regtest createrawtransaction \
-'[
-  {"txid":"'"$TXID"'","vout":0,"sequence":4294967294},
-  {"txid":"'"$TXID"'","vout":1,"sequence":4294967294}
-]' \
-'[
-  {"2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP": 0.20000000},
-  {"bcrt1qg09ftw43jvlhj4wlwwhkxccjzmda3kdm4y83ht": 0.03600000}
-]' \
-2041
+# Use named arguments for maximum stability (Bitcoin Core 28.0+)
+bitcoin-cli -regtest -named createrawtransaction \
+  inputs='[{"txid":"'"$TXID"'","vout":0,"sequence":4294967294},{"txid":"'"$TXID"'","vout":1,"sequence":4294967294}]' \
+  outputs='[{"2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP":0.20000000},{"bcrt1qg09ftw43jvlhj4wlwwhkxccjzmda3kdm4y83ht":0.03600000}]' \
+  locktime=2041
