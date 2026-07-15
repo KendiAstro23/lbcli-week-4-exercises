@@ -7,17 +7,10 @@
 
 #!/usr/bin/env bash
 
-# Use the exact funding TXID from the provided transaction in the comment
 TXID="8432ddfa618de25bd8838e3e16c044ef66e9385751a78924e5457acdedfb06c5"
 
-# This produces the exact raw tx hex that the grader checks via SHA
-bitcoin-cli -regtest createrawtransaction \
-  '[
-    {"txid":"'"$TXID"'","vout":0,"sequence":4294967294},
-    {"txid":"'"$TXID"'","vout":1,"sequence":4294967294}
-  ]' \
-  '[
-    {"2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP": 0.20000000},
-    {"bcrt1qg09ftw43jvlhj4wlwwhkxccjzmda3kdm4y83ht": 0.03600000}
-  ]' \
-  2041
+# Use named arguments + array outputs for strict order + no floating point quirks
+bitcoin-cli -regtest -named createrawtransaction \
+  inputs='[{"txid":"'"$TXID"'","vout":0,"sequence":4294967294},{"txid":"'"$TXID"'","vout":1,"sequence":4294967294}]' \
+  outputs='[{"2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP":0.20000000},{"bcrt1qg09ftw43jvlhj4wlwwhkxccjzmda3kdm4y83ht":0.03600000}]' \
+  locktime=2041
