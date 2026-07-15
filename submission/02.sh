@@ -14,8 +14,8 @@ bitcoin-cli -regtest createrawtransaction \
   {"txid":"'"$TXID"'","vout":0,"sequence":4294967294},
   {"txid":"'"$TXID"'","vout":1,"sequence":4294967294}
 ]' \
-'{
-  "2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP":0.20000000,
-  "bcrt1qg09ftw43jvlhj4wlwwhkxccjzmda3kdm4y83ht":0.03600000
-}' \
+'[
+  {"2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP": 0.20000000},
+  {"bcrt1qg09ftw43jvlhj4wlwwhkxccjzmda3kdm4y83ht": 0.03600000}
+]' \
 2041
