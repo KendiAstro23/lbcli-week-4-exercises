@@ -11,11 +11,11 @@ TXID="23c19f37d4e92e9a115aab86e4edc1b92a51add4e0ed0034bb166314dde50e16"
 
 bitcoin-cli -regtest createrawtransaction \
 '[
-  {"txid":"'"$TXID"'","vout":0,"sequence":2016},
-  {"txid":"'"$TXID"'","vout":1,"sequence":2016}
+  {"txid":"'"$TXID"'","vout":0,"sequence":4294967294},
+  {"txid":"'"$TXID"'","vout":1,"sequence":4294967294}
 ]' \
 '{
   "2MvLcssW49n9atmksjwg2ZCMsEMsoj3pzUP":0.20000000,
   "bcrt1qg09ftw43jvlhj4wlwwhkxccjzmda3kdm4y83ht":0.03600000
 }' \
-0
+2041
