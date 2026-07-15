@@ -7,7 +7,7 @@
 
 #!/usr/bin/env bash
 
-TXID="23c19f37d4e92e9a115aab86e4edc1b92a51add4e0ed0034bb166314dde50e16"
+TXID="8432ddfa618de25bd8838e3e16c044ef66e9385751a78924e5457acdedfb06c5"
 
 bitcoin-cli -regtest createrawtransaction \
 '[
